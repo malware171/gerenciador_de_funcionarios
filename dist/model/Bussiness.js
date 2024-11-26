@@ -15,7 +15,9 @@ class Bussiness {
     get getEndereco() {
         return this._endereco;
     }
-    adicionarFuncionario() {
+    addFuncionario(funcionarios) {
+        this._funcionarios.push(funcionarios);
+        console.log(funcionarios);
     }
     removerFuncionario() { }
     listarFuncionario() { }

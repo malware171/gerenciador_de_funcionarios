@@ -25,7 +25,9 @@ export default class Bussiness {
     return this._endereco
   }
 
-  adicionarFuncionario() {
+  addFuncionario(funcionarios: Employee): void {
+    this._funcionarios.push(funcionarios)
+    console.log(funcionarios)
   }
   removerFuncionario() {}
   listarFuncionario() {}

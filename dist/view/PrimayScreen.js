@@ -1,47 +1,53 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const prompt_sync_1 = __importDefault(require("prompt-sync"));
-let teclado = (0, prompt_sync_1.default)();
+exports.PrimaryScreen = void 0;
+const PrimaryScreenController_1 = require("../controller/PrimaryScreenController");
 class PrimaryScreen {
+    constructor(empresa) {
+        this.empresa = empresa;
+    }
     getFirstScreen() {
         let option = 0;
-        while (option != 9) {
-            console.log("+======   Gerenciador de Funconarios   ======+");
-            console.log("|1. Cadastrar Funcionario                    |");
-            console.log("|2. Remover Funcionario                      |");
-            console.log("|3. Promover Funcionario                     |");
-            console.log("|4. Listar Funcionarios                      |");
-            console.log("|5. Excluir Funcionario                      |");
-            console.log("|6. Cadastrar Cargo                          |");
-            console.log("|7. Listar Cargos                            |");
-            console.log("|8. Excluir Cargo                            |");
-            console.log("|9. Sair                                     |");
-            option = +teclado("Escolha uma ação: ");
+        while (option !== 9) {
+            console.log(`\n+======   Gerenciador de Funconarios da empresa ${this.empresa.getNomeEmpresa}   ======+`);
+            console.log("| 1. Cadastrar Funcionario                    |");
+            console.log("| 2. Remover Funcionario                      |");
+            console.log("| 3. Promover Funcionario                     |");
+            console.log("| 4. Listar Funcionarios                      |");
+            console.log("| 5. Excluir Funcionario                      |");
+            console.log("| 6. Cadastrar Cargo                          |");
+            console.log("| 7. Listar Cargos                            |");
+            console.log("| 8. Excluir Cargo                            |");
+            console.log("| 9. Sair                                     |");
+            option = PrimaryScreenController_1.PrimaryScreenController.escolherOpcao();
             switch (option) {
                 case 1: {
+                    this.empresa.addFuncionario;
+                    console.log("Cadastrando funcionário...");
                     break;
                 }
                 case 2: {
+                    console.log("Removendo funcionário...");
                     break;
                 }
                 case 3: {
+                    console.log("Promovendo funcionário...");
                     break;
                 }
                 case 4: {
+                    console.log("Listando funcionários...");
                     break;
                 }
                 case 9: {
+                    console.log("Saindo...");
                     break;
                 }
                 default: {
-                    console.log("Opcão Invalida !");
+                    console.log("Opção Inválida!");
                     break;
                 }
             }
         }
     }
 }
-exports.default = PrimaryScreen;
+exports.PrimaryScreen = PrimaryScreen;

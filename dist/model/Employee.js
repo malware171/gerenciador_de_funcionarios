@@ -1,11 +1,15 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-class Employee {
-    constructor(nome, id, cargo, salario) {
-        (this._nome = nome),
-            (this._id = id),
-            (this._cargo = cargo),
-            (this._salario = salario);
+const People_1 = __importDefault(require("./People"));
+class Employee extends People_1.default {
+    constructor(id, nome, idade, cpf, genero, telefone, cargo, salario) {
+        super(nome, idade, cpf, genero, telefone);
+        this._id = id,
+            this._salario = salario;
+        this._cargo = cargo;
     }
     promover() { }
     detalharFuncionario() { }
